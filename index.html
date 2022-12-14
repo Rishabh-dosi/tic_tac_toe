@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design.css">
+    <title>TIC TAK TOE</title>
+    <script src="https://kit.fontawesome.com/af47179e85.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="Menuebar">
+        <h1>Tic Tac Toe</h1>
+        
+    </div>
+    <div class="navbar">
+        <a href="#instr" onclick="typeWriter()">Instructions</a>
+        <a href="#scoreboard">Scoreboard</a>
+        <a href="#features">Features</a>
+        <a href="#feedback">Feedback</a>
+    </div>
+    <div class="screen">
+    
+    <div class="gameinfo">
+        <button id="refresh" class="" onclick="ref()"><i class="fa-sharp fa-solid fa-rotate-right fa-2x"></i></button></i><br><br>
+        Player X name:
+        <input type="text" name="px" id="p1"><br>
+        <br>
+        Player O name:
+        <input type="text" name="po" id="p2"><br>
+    </div>
+    <div class="game">
+        
+        <p id="playerturn"></p>
+        <table>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <tr>
+                <td><input type="button" id="id1" turn="X" filled="n" value="" class="" onclick="myfunc2(); showTurn(); won();" ></td>
+                <td><input type="button" id="id2" turn="X" filled="n" value="" class="" onclick="myfunc3(); showTurn(); won();"></td>
+                <td><input type="button" id="id3" turn="X" filled="n" value="" class="" onclick="myfunc4(); showTurn(); won();"></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="id4" turn="X" filled="n" value="" onclick="myfunc5(); showTurn(); won();"></td>
+                <td><input type="button" id="id5" turn="X" filled="n" value="" onclick="myfunc6(); showTurn(); won();"></td>
+                <td><input type="button" id="id6" turn="X" filled="n" value="" onclick="myfunc7(); showTurn(); won();"></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="id7" turn="X" filled="n" value="" onclick="myfunc8(); showTurn(); won();"></td>
+                <td><input type="button" id="id8" turn="X" filled="n" value="" onclick="myfunc9(); showTurn(); won();"></td>
+                <td><input type="button" id="id9" turn="X" filled="n" value="" onclick="myfunc10(); showTurn(); won();"></td>
+            </tr>
+        </table>
+        <br>
+        
+        <button id="start" onclick="myfunc(); showTurn();">START GAME</button>
+        <p id="status"></p>
+    
+    </div>
+    <div class="winner" id="win">
+        <p id="w"></p>
+        <p>Here's your reward</p>
+        <!-- https://img.freepik.com/premium-vector/smile-face-with-middle-finger-gesture-t-shirt-print-vector-hand-drawn-cartoon-character-illustration-smile-face-middle-finger-gesture-print-t-shirt-poster-concept_92289-3299.jpg?w=2000 -->
+        <img src="giftboxblack-removebg-preview.png"
+            alt="df">
+        <button type="button" id="b12" onclick="closepop()">CLOSE</button>
+    
+    </div>
+    </div>
+    <section id = "instr">
+        <div class="ins">
+            <p id="ins1"></p>
+            <p id="ins2">1.Here are some instructions to guide you how to play this game..</p>
+            <p id="ins3">2.Here are some instructions to guide you how to play this game..</p>
+        </div>
+        <div class="logo">
+            <img src="gamelogo.png" alt="">
+        </div>
+        
+
+    </section>
+    <section id="scoreboard">
+        <h1>Scoreboard</h1>
+        <table class="scores">
+            <tr class="scores">
+                <th id="p1name" class="scores"></th>
+                <th id="p2name" class="scores"></th>
+            </tr>
+            <tr class="scores">
+                <td id="p1score" class="scores"></td>
+                <td id="p2score" class="scores"></td>
+            </tr>
+        </table>
+    </section>
+    
+    <script>
+        let b1 = document.getElementById('id1');
+        let b2 = document.getElementById('id2');
+        let b3 = document.getElementById('id3');
+        let b4 = document.getElementById('id4');
+        let b5 = document.getElementById('id5');
+        let b6 = document.getElementById('id6');
+        let b7 = document.getElementById('id7');
+        let b8 = document.getElementById('id8');
+        let b9 = document.getElementById('id9');
+        var started = "n";
+        turn = "X";
+
+        function myfunc(){
+            started = "y";
+            document.getElementById("status").innerHTML="STARTED";
+            document.getElementById('refresh').className = "";
+            document.getElementById("p1name").innerHTML=document.getElementById("p1").innerHTML;
+            document.getElementById("p2name").innerHTML = document.getElementById("p2").innerHTML;
+
+        }
+        function myfunc2(){
+            if(started == "y" && turn == "X" && b1.getAttribute("filled")=="n"){
+                b1.value = "X";
+                b1.setAttribute("filled" , "y");
+                turn = "O";
+            }
+            else if(started=="y" && b1.getAttribute("filled")=="n" && turn == "O"){
+                b1.value = "O"
+                b1.setAttribute("filled", "y");
+                turn = "X";
+            }
+            else{
+                alert("ALREADY FILLED");
+                /*let error= function(){
+                    b1.style.backgroundColor = "rgb(242, 117, 87)";
+                    b1.style.borderColor = "red";
+                    
+                }
+                setTimeout(error , 2000);
+                b1.style.backgroundColor="antiquewhite";*/
+                b1.className="error";
+                
+
+            }
+        }
+        function myfunc3(){
+            if (started == "y" && turn == "X" && b2.getAttribute("filled") == "n") {
+                b2.value = "X";
+                b2.setAttribute("filled", "y");
+                turn = "O";
+            }
+            else if (started == "y" && b2.getAttribute("filled") == "n" && turn == "O") {
+                b2.value = "O";
+                b2.setAttribute("filled", "y");
+                turn= "X";
+            }
+            else {
+                alert("ALREADY FILLED");
+            }
+        }
+        function myfunc4(){
+            if (started == "y" && turn == "X" && b3.getAttribute("filled") == "n") {
+                b3.value = "X";
+                b3.setAttribute("filled", "y");
+                turn = "O";
+            }
+            else if (started == "y" && b3.getAttribute("filled") == "n" && turn == "O") {
+                b3.value = "O";
+                b3.setAttribute("filled", "y");
+                turn = "X";
+            }
+            else {
+                alert("ALREADY FILLED");
+            }
+        }
+        
+        function myfunc5(){
+            if (started == "y" && turn == "X" && b4.getAttribute("filled") == "n") {
+                b4.value = "X";
+                b4.setAttribute("filled", "y");
+                turn = "O";
+            }
+            else if (started == "y" && b4.getAttribute("filled") == "n" && turn == "O") {
+                b4.value = "O";
+                b4.setAttribute("filled", "y");
+                turn = "X";
+            }
+            else {
+                alert("ALREADY FILLED");
+            }
+        }
+        function myfunc6(){
+            if (started == "y" && turn == "X" && b5.getAttribute("filled") == "n") {
+                b5.value = "X";
+                b5.setAttribute("filled", "y");
+                turn = "O";
+            }
+            else if (started == "y" && b5.getAttribute("filled") == "n" && turn == "O") {
+                b5.value = "O";
+                b5.setAttribute("filled", "y");
+                turn = "X";
+            }
+            else {
+                alert("ALREADY FILLED");
+
+            }
+        }
+        function myfunc7(){
+            if (started == "y" && turn == "X" && b6.getAttribute("filled") == "n") {
+                b6.value = "X";
+                b6.setAttribute("filled", "y");
+                turn = "O";
+            }
+            else if (started == "y" && b6.getAttribute("filled") == "n" && turn == "O") {
+                b6.value = "O";
+                b6.setAttribute("filled", "y");
+                turn = "X";
+            }
+            else {
+                alert("ALREADY FILLED");
+            }
+        }
+        function myfunc8(){
+            if (started == "y" && turn == "X" && b7.getAttribute("filled") == "n") {
+                b7.value = "X";
+                b7.setAttribute("filled", "y");
+                turn = "O";
+            }
+            else if (started == "y" && b7.getAttribute("filled") == "n" && turn == "O") {
+                b7.value = "O";
+                b7.setAttribute("filled", "y");
+                turn = "X";
+            }
+            else {
+                alert("ALREADY FILLED");
+            }
+        }
+        function myfunc9(){
+            if (started == "y" && turn == "X" && b8.getAttribute("filled") == "n") {
+                b8.value = "X";
+                b8.setAttribute("filled", "y");
+                turn = "O";
+            }
+            else if (started == "y" && b8.getAttribute("filled") == "n" && turn == "O") {
+                b8.value = "O";
+                b8.setAttribute("filled", "y");
+                turn = "X";
+            }
+            else {
+                alert("ALREADY FILLED");
+            }
+        }
+        function myfunc10(){
+            if (started == "y" && turn == "X" && b9.getAttribute("filled") == "n") {
+                b9.value = "X";
+                b9.setAttribute("filled", "y");
+                turn = "O";
+            }
+            else if (started == "y" && b9.getAttribute("filled") == "n" && turn == "O") {
+                b9.value = "O";
+                b9.setAttribute("filled", "y");
+                turn = "X";
+            }
+            else {
+                alert("ALREADY FILLED");
+            }
+        }
+
+        function showTurn(){
+            let p1 = document.getElementById('p1').value;
+            let p2 = document.getElementById('p2').value;
+            if(turn == "X"){
+                document.getElementById('playerturn').innerHTML = (p1 + "'s turn");
+            }
+            if(turn == "O"){
+                document.getElementById('playerturn').innerHTML = (p2 + "'s turn");
+            }            
+        }
+        function ref(){
+            document.getElementById('refresh').className="refr";
+            // setTimeout(location.reload() , 4000);            
+        }
+        let winner;
+        function won(){
+            let p1 = document.getElementById('p1').value;
+            let p2 = document.getElementById('p2').value;
+            if((b1.value == "X" && ((b2.value == "X" && b3.value == "X") || (b4.value == "X" && b7.value == "X") || (b5.value == "X" && b9.value == "X")))){
+                alert(p1+" won");
+                winner = p1;
+                checkwinner();
+                openpop();
+
+            }
+            if((b1.value=="O"&&((b2.value == "O"&& b3.value == "O")||(b4.value == "O" && b7.value == "O")||(b5.value == "O" && b9.value == "O")))){
+                alert(p2 + " won");
+                winner = p2;
+                checkwinner();
+                openpop();
+            }
+        }
+        function checkwinner(){
+            if(winner == document.getElementById('p1').value){
+                document.getElementById('w').value=("WINNER IS " + winner);
+            }
+            if (winner == document.getElementById('p2').value) {
+                document.getElementById('w').value = ("WINNER IS " + winner);
+            }
+        }
+        function openpop(){
+            document.getElementById('win').classList.add("winner1");
+        }
+        function closepop(){
+            document.getElementById('win').classList.remove("winner1");
+        }
+        let txt = "Here are some instructions to guide you how to play this game..";
+        var i = 0;
+        let speed = 50;
+        function typeWriter(){
+            if( i < txt.length){
+                document.getElementById("ins1").innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+            else{
+                i = 0;
+                document.getElementById("ins1").innerHTML="Here are some instructions to guide you how to play this game..";
+            }
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
