@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap');
+body {
+    background-color: #3edbfa;
+    margin: 0%;
+}
+.Menuebar{
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+    padding-top: 0%;
+    margin-top: 0%;
+    position: sticky;
+    height: fixed;
+    width: 100%;
+    margin-right: 0%;
+
+}
+h1{
+    text-align: center;
+    font-family: 'Tangerine', cursive;
+    font-size: 50px;
+    width: 300px;
+    font-weight: bold;   
+    
+}
+.screen{
+    display: flex;
+    margin: 5px;
+    width: 100%;
+    height: 700px;
+
+}
+h1:hover{
+    animation: jump 0.5s ease 0s 3 alternate both;
+    cursor: grab;
+}
+.navbar{
+    display: flex;
+    font-size: 30px;
+    background-color: black;
+    width: 100%;   
+    justify-content: center;
+    left: 3px;
+    top: auto;
+    height: 80px;
+    margin: 0%;
+    
+}
+
+.navbar a{
+    display: inline-block;
+    color: white;
+    text-underline-position: none;
+    padding: 15px 15px;
+    text-decoration: none;
+    margin-top: 5px;
+    
+    position: relative;
+    height: 25px;
+    align-items: flex-start;
+    
+}
+.navbar a::after{
+    content: '';
+    background-color: #3edbfa;
+    width: 0;
+    height: 2px;
+    bottom: 1px;
+    left: 0;
+    position: absolute;
+    transition: 0.3s;
+
+}
+.navbar a:hover::after{
+    width: 100%;
+
+    
+}
+@keyframes jump{
+    0% {
+        transform: translateY(0px);
+        
+        
+    }
+    50% {
+        transform: translateY(7px);
+        box-shadow: 3px 4px rgb(59, 25, 25) ;
+        text-shadow: 2px;
+    }
+    100% {
+        transform: translateY(0px);
+    }
+    
+}
+.gameinfo{
+    margin-left: 20px;
+    margin-top: 50px;
+    justify-content: center;
+    padding: 10px;
+}
+#refresh{
+    background-color: #3edbfa;
+    border-radius: 100%;
+    border-color: #3edbfa;
+    box-shadow: none;
+    border-style: solid;   
+}
+.refr{
+    animation: rotate180 1.2s ease 0s alternate both;
+}
+@keyframes rotate180 {
+    0% {
+        transform: rotate(0deg);
+    }
+    
+    100% {
+        transform: rotate(360deg);
+    }
+}
+#playerturn{
+    font-family: 'Tangerine', cursive;
+    font-size: 40px;
+}
+.game {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    height: 300px;
+    justify-content: center;
+    flex-direction: column;
+    padding: 100px;
+    padding-right: 20px;
+    width: 725px;
+    
+}
+
+table{
+    border: 4mm ridge rgba(211, 220, 50, .6);
+    
+}
+table , tr , td{
+    padding: 10px;
+    
+}
+input{
+    width: 30px;
+    height: 30px;
+    font-size: large;
+    text-align: center;   
+    background-color: antiquewhite;
+    border-color: aqua;
+    /* border-style: solid; */
+}
+#p1 , #p2{
+    padding: 4px;
+    width: 70px;
+    height: 10px;
+}
+#start{
+    padding: 5px;
+    background-color: blueviolet;
+    color: black;
+    border-radius: 100%;
+    size: 100px;
+}
+.started{
+    visibility: hidden;
+}
+.winner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: antiquewhite;
+    top: 0%;
+    left: 50%;
+    z-index: 1;
+    height: 350px;
+    width: 350px;
+    margin: 3px;
+    align-items: center;
+    transform: translate(-50px , -50px) scale(0.1); 
+    visibility: hidden;
+    transition: transform 0.4s;
+}
+.winner p{
+    z-index: 1;
+}
+.winner button{
+    z-index: 1;
+}
+.winner img{
+    width: 250px;
+    height: 200px;
+    background-color: antiquewhite;
+    animation: giftbox 1.2s ease 2s infinite both ;
+    box-shadow: 2px #202020 ;
+    z-index: 0;
+}
+@keyframes giftbox {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(-20deg);
+    }
+    80%{
+        transform: rotate(20deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+.winner1{
+    transform: translate(2px , 80px) scale(1);
+    visibility: visible;
+    top: 50%;
+}
+.winner1 img{
+    animation: giftbox 1.1s alternate 0.3s infinite alternate;
+}
+
+.error{
+    animation: incorrect 1s linear 0s alternate both;
+}
+@keyframes incorrect {
+    0%{
+        transform: translateX(1px);
+
+    }
+    50%{
+        transform: translateX(-1px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+.reward{
+    font-size: 30px;
+    
+}
+#instr{
+    display: flex;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 200%;
+    width: 100%;
+    height: 100%;
+    top: -30px;
+
+}
+#ins1{
+    color: blueviolet;
+}
+#ins1::first-letter{
+    font-size: 300%;
+    color: white;
+}
+.scores {
+    border: 5px black solid;
+    border-collapse: collapse;    
+    width: 400px;
+    font-size: 30px;
+}
+#scoreboard{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+    font-family: 'Times New Roman', Times, serif;
+    height: 100%;
+}
